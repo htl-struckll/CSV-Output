@@ -1,25 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.VisualBasic.FileIO;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.FileIO;
 using MessageBox = System.Windows.MessageBox;
 using Path = System.IO.Path;
+using RadioButton = System.Windows.Controls.RadioButton;
 
-namespace CSV_OUTPUT
+namespace CSV_OUTPUT.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -31,8 +21,6 @@ namespace CSV_OUTPUT
         public MainWindow()
         {
             InitializeComponent();
-
-           
         }
 
         #region Event´s
@@ -58,24 +46,65 @@ namespace CSV_OUTPUT
             }
         }
 
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        /// <summary>
+        /// Calls the save method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Save_Click(object sender, RoutedEventArgs e) => Save();
 
         private void Table_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
         private void AllEditable_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
-        private void FontSizeTable_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Changes the fontSize of the table 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Px_Checked(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string rb = (sender as RadioButton)?.Name;
+
+            if (DataTable != null)
+                switch (rb)
+                {
+                    case "fivePx":
+                        DataTable.FontSize = 5;
+                        break;
+                    case "tenPx":
+                        DataTable.FontSize = 10;
+                        break;
+                    case "twelvePx":
+                        DataTable.FontSize = 12;
+                        break;
+                    case "fifteenPx":
+                        DataTable.FontSize = 15;
+                        break;
+                    case "twentyPx":
+                        DataTable.FontSize = 20;
+                        break;
+                }
         }
 
         /// <summary>
@@ -90,10 +119,7 @@ namespace CSV_OUTPUT
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Help_Click(object sender, RoutedEventArgs e)
-        {
-            Output("First you have to select a File         ==> File > Select File\nSecond determain the delimeter    ==> Delimeter input\nThird check if you want 'First row contains field names'\nPress Load");
-        }
+        private void Help_Click(object sender, RoutedEventArgs e) => Output("First you have to select a File         ==> File > Select File\nSecond determain the delimeter    ==> Delimeter input\nThird check if you want 'First row contains field names'\nPress Load");
         #endregion
 
         /// <summary>
@@ -115,6 +141,18 @@ namespace CSV_OUTPUT
                 Output(e.Message, "Error!", MessageBoxImage.Error);
             }
 
+        }
+
+        private void Save()
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
         #region Table
@@ -178,8 +216,9 @@ namespace CSV_OUTPUT
         private void Output(string msg, string caption ="Info", MessageBoxImage icon = MessageBoxImage.Asterisk, MessageBoxButton btn = MessageBoxButton.OK) => MessageBox.Show(msg,caption, btn, icon);
 
 
+
         #endregion
 
-     
+  
     }
 }

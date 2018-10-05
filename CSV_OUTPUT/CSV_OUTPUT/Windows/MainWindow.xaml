@@ -1,4 +1,4 @@
-﻿<Window x:Class="CSV_OUTPUT.MainWindow"
+﻿<Window x:Class="CSV_OUTPUT.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,7 +15,13 @@
                         <MenuItem Click="Save_Click"  FontSize="12" Header="Save File"></MenuItem>
                     </MenuItem>
                     <MenuItem Header="Settings" Background="AliceBlue" FontSize="14" Height="25" Width="65" Margin="0">
-                        <MenuItem Click="FontSizeTable_Click" FontSize="12" Header="Font size table"/>
+                        <MenuItem FontSize="12" Header="Font size table">
+                            <RadioButton x:Name="fivePx" Checked="Px_Checked">5 px</RadioButton>
+                            <RadioButton x:Name="tenPx" Checked="Px_Checked">10 px</RadioButton>
+                            <RadioButton x:Name="twelvePx" Checked="Px_Checked" IsChecked="true">12 px</RadioButton>
+                            <RadioButton x:Name="fifteenPx" Checked="Px_Checked" >15 px</RadioButton>
+                            <RadioButton x:Name="twentyPx" Checked="Px_Checked">20 px</RadioButton>
+                        </MenuItem>
                         <MenuItem Click="AllEditable_Click"  FontSize="12" Header="All editable"></MenuItem>
                     </MenuItem>
                    <MenuItem Header="Help" Click="Help_Click" Background="AliceBlue" FontSize="14" Height="25" Width="46" Margin="0"/>
