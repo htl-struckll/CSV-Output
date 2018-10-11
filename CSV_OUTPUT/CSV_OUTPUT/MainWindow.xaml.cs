@@ -31,8 +31,27 @@ namespace CSV_OUTPUT
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-           
+        /// <summary>
+        /// Starts the whole prozess 
+        /// </summary>
+        private void Start()
+        {
+            try
+            {
+                if (DelimetersInput.Text.Equals(string.Empty))
+                    throw new Exception("You have to enter a delimeter!");
+                else if (_filePath.Equals(string.Empty))
+                    throw new Exception("You have to select a file!");
+                else
+                    DataTable.DataContext = NewDataTable(_filePath, DelimetersInput.Text, Convert.ToBoolean(FirstRowContainsFieldNamesCheckBox.IsChecked)).DefaultView;
+            }
+            catch (Exception e)
+            {
+                Output(e.Message, "Error!", MessageBoxImage.Error);
+            }
+
         }
 
         #region Event´s
@@ -60,22 +79,50 @@ namespace CSV_OUTPUT
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
         private void Table_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error!", MessageBoxImage.Error);
+            }
         }
 
         private void AllEditable_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
         private void FontSizeTable_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Output(ex.Message, "Error", MessageBoxImage.Error);
+            }
         }
 
         /// <summary>
@@ -95,27 +142,6 @@ namespace CSV_OUTPUT
             Output("First you have to select a File         ==> File > Select File\nSecond determain the delimeter    ==> Delimeter input\nThird check if you want 'First row contains field names'\nPress Load");
         }
         #endregion
-
-        /// <summary>
-        /// Starts the whole prozess 
-        /// </summary>
-        private void Start()
-        {
-            try
-            {
-                if (DelimetersInput.Text.Equals(string.Empty))
-                    throw new Exception("You have to enter a delimeter!");
-                else if (_filePath.Equals(string.Empty))
-                    throw new Exception("You have to select a file!");
-                else
-                    DataTable.DataContext = NewDataTable(_filePath, DelimetersInput.Text, Convert.ToBoolean(FirstRowContainsFieldNamesCheckBox.IsChecked)).DefaultView;
-            }
-            catch (Exception e)
-            {
-                Output(e.Message, "Error!", MessageBoxImage.Error);
-            }
-
-        }
 
         #region Table
 
@@ -179,7 +205,5 @@ namespace CSV_OUTPUT
 
 
         #endregion
-
-     
     }
 }

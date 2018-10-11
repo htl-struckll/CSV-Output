@@ -18,7 +18,7 @@
                         <MenuItem Click="FontSizeTable_Click" FontSize="12" Header="Font size table"/>
                         <MenuItem Click="AllEditable_Click"  FontSize="12" Header="All editable"></MenuItem>
                     </MenuItem>
-                   <MenuItem Header="Help" Click="Help_Click" Background="AliceBlue" FontSize="14" Height="25" Width="46" Margin="0"/>
+                    <MenuItem Header="Help" Click="Help_Click" Background="AliceBlue" FontSize="14" Height="25" Width="46" Margin="0"/>
                 </Menu>
             </ToolBar>
         </ToolBarTray>
@@ -32,7 +32,10 @@
         <TextBlock Margin="348,40,0,0" FontSize="13" HorizontalAlignment="Left" Width="69" Height="38" VerticalAlignment="Top">File name:</TextBlock>
         <TextBlock x:Name="OutputFileName" Margin="410,40,0,0" FontSize="13" HorizontalAlignment="Left" Width="147" Height="38" VerticalAlignment="Top" FontWeight="Bold"></TextBlock>
 
-        <Button Margin="0,40,10,0" FontSize="13" Click="Load_Click" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55">Start</Button>
+        <!--<Button Margin="0,40,10,0" FontSize="15" Click="Load_Click" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55">Start</Button>-->
+        <Menu  Margin="0,40,9.8,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Right" Width="55">
+            <MenuItem FontSize="15" Header="Start" Click="Load_Click" Height="29" Width="55"></MenuItem>
+        </Menu>
 
         <DataGrid x:Name="DataTable" ItemsSource="{Binding}" CellEditEnding="Table_CellEditEnding" Margin="10,78,10,10"></DataGrid>
     </Grid>
