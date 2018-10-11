@@ -21,6 +21,8 @@ namespace CSV_OUTPUT.Windows
         public MainWindow()
         {
             InitializeComponent();
+
+           
         }
 
         #region Event´s
@@ -55,14 +57,12 @@ namespace CSV_OUTPUT.Windows
 
         private void Table_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            try
-            {
-                throw new NotImplementedException();
-            }
-            catch (Exception ex)
-            {
-                Output(ex.Message, "Error", MessageBoxImage.Error);
-            }
+            throw new NotImplementedException();
+        }
+
+        private void Table_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void AllEditable_Click(object sender, RoutedEventArgs e)
@@ -84,27 +84,7 @@ namespace CSV_OUTPUT.Windows
         /// <param name="e"></param>
         private void Px_Checked(object sender, RoutedEventArgs e)
         {
-            string rb = (sender as RadioButton)?.Name;
-
-            if (DataTable != null)
-                switch (rb)
-                {
-                    case "fivePx":
-                        DataTable.FontSize = 5;
-                        break;
-                    case "tenPx":
-                        DataTable.FontSize = 10;
-                        break;
-                    case "twelvePx":
-                        DataTable.FontSize = 12;
-                        break;
-                    case "fifteenPx":
-                        DataTable.FontSize = 15;
-                        break;
-                    case "twentyPx":
-                        DataTable.FontSize = 20;
-                        break;
-                }
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -141,18 +121,6 @@ namespace CSV_OUTPUT.Windows
                 Output(e.Message, "Error!", MessageBoxImage.Error);
             }
 
-        }
-
-        private void Save()
-        {
-            try
-            {
-                throw new NotImplementedException();
-            }
-            catch (Exception ex)
-            {
-                Output(ex.Message, "Error", MessageBoxImage.Error);
-            }
         }
 
         #region Table
@@ -219,6 +187,6 @@ namespace CSV_OUTPUT.Windows
 
         #endregion
 
-  
+     
     }
 }
